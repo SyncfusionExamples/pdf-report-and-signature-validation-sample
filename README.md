@@ -1,4 +1,4 @@
-# PDF Report and Signature Validation Sample
+# PDF Report Creation and Digital Signature Validation Using Syncfusion .NET PDF Library
 
 An ASP.NET Core sample that uses the [Syncfusion .NET PDF Library](https://www.syncfusion.com/document-sdk/net-pdf-library/) to generate a PDF report, digitally sign it, and validate digital signatures on PDF files. It includes a web UI and a REST API.
 
