@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PDF Report and Signature Validation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>PDF Report and Signature Validation <span>Syncfusion .NET PDF Library POC</span></h1>
+    <a href="/swagger" target="_blank">API docs (Swagger)</a>
+  </header>
+
+  <main>
+    <nav class="tabs">
+      <button class="tab active" data-tab="generate">Generate report</button>
+      <button class="tab" data-tab="validate">Validate signature</button>
+    </nav>
+
+    <section id="generate" class="panel active">
+      <form id="reportForm" class="card">
+        <label>Policy ID
+          <input id="policyId" required value="POL-2026-0001" autocomplete="off">
+        </label>
+        <label>Name
+          <input id="name" required value="Maria Silva" autocomplete="off">
+        </label>
+        <label class="check">
+          <input type="checkbox" id="sign" checked>
+          Digitally sign with demo certificate
+        </label>
+        <button type="submit" id="generateBtn">Generate PDF</button>
+        <p class="hint">Calls <code>POST /api/pdf/createreport</code>. All other report details are static sample data.</p>
+        <p id="generateError" class="error" hidden></p>
+      </form>
+
+      <div id="result" class="card" hidden>
+        <div class="actions">
+          <a id="download" class="btn">Download PDF</a>
+          <button id="validateThis" class="btn secondary" type="button">Validate this document</button>
+        </div>
+        <iframe id="preview" title="PDF preview"></iframe>
+      </div>
+    </section>
+
+    <section id="validate" class="panel">
+      <div class="card">
+        <label>PDF file
+          <input type="file" id="file" accept="application/pdf,.pdf">
+        </label>
+        <button id="validateBtn" type="button">Validate signatures</button>
+        <p class="hint">Calls <code>POST /api/pdf/validatesignature</code>.</p>
+        <p id="validateError" class="error" hidden></p>
+      </div>
+      <div id="validation" class="card" hidden></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
